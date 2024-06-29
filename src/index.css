@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  @font-face {
+    font-family: Cascadia Code;
+    src: url(/src/fonts/Cascadia.ttf);
+  }
+}
+
 * {
   margin: 0;
   padding: 0;

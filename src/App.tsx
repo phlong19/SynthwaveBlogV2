@@ -1,13 +1,16 @@
-import Button from "./components/Button";
-import { Button as MCButton } from "@mantine/core";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import AppLayout from "./components/layouts/AppLayout";
 
 function App() {
   return (
-    <div className="container flex items-center">
-      home
-      <Button>hi</Button>
-      <MCButton>bla</MCButton>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<AppLayout />}>
+          <Route path="/" element={<Home />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
