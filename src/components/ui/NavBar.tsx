@@ -11,7 +11,7 @@ export function Navbar({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "fixed inset-x-0 top-0 z-50 mx-auto max-w-full bg-white/60 shadow-md backdrop-blur-sm",
+        "fixed inset-x-0 top-0 z-50 mx-auto max-w-full bg-white/60 font-cas shadow-md backdrop-blur-sm",
         className,
       )}
     >
