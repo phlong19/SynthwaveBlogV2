@@ -1,0 +1,31 @@
+.controls {
+  transition: opacity 150ms ease;
+  opacity: 0;
+}
+
+.root {
+  &:hover {
+    .controls {
+      opacity: 1;
+    }
+  }
+}
+
+.indicator {
+  width: 12px !important;
+  height: 4px !important;
+  transition: width 250ms ease;
+  background-color: red !important;
+
+  &[data-active] {
+    width: 25px !important;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .root {
+    .controls {
+      opacity: 1;
+    }
+  }
+}

@@ -47,7 +47,7 @@ export const BentoGridItem = ({
   return (
     <div
       className={cn(
-        `group/bento shadow-input relative row-span-1 flex ${sider ? "flex-row items-center gap-4" : "flex-col gap-0 sm:gap-1 md:gap-2"} show space-y-2 rounded-xl border border-transparent bg-white p-4 shadow-lg transition duration-200 hover:shadow-xl dark:border-white/[0.2] dark:bg-black dark:shadow-none`,
+        `group/bento shadow-input relative row-span-1 flex bg-red-600 ${sider ? "flex-row items-center gap-4" : "flex-col gap-0 sm:gap-1 md:gap-2"} show space-y-2 rounded-xl border border-transparent bg-white p-4 shadow-lg transition duration-200 hover:shadow-xl dark:border-white/[0.2] dark:bg-black dark:shadow-none`,
         className,
       )}
     >
@@ -63,12 +63,12 @@ export const BentoGridItem = ({
           />
         </Link>
       </div>
-      <div className="flex-grow transition duration-200 group-hover/bento:translate-x-2 lg:flex-grow-0">
+      <div className="min-h-[85px] flex-grow transition duration-200 group-hover/bento:translate-x-2 lg:flex-grow-0">
         <Link to={title}>
           <div className="flex items-center justify-start gap-2">
             {icon}
             <div
-              className={`${sider ? "md:line-clamp-1" : "line-clamp-1 lg:line-clamp-2"} mb-2 mt-2 font-sans font-bold text-neutral-600 dark:text-neutral-200`}
+              className={`${sider ? "md:line-clamp-1" : "line-clamp-1 xl:line-clamp-2"} mb-2 mt-2 font-sans font-bold text-neutral-600 dark:text-neutral-200`}
             >
               {title}
             </div>
@@ -84,7 +84,7 @@ export const BentoGridItem = ({
         {/* menu */}
         <Menu.Target>
           <div
-            className={`${open ? "visible" : "invisible"} absolute bottom-3 right-3 cursor-pointer transition-all duration-150 group-hover/bento:visible`}
+            className={`${open ? "visible" : "invisible"} ${sider ? "bottom-3.5" : "bottom-3"} absolute right-3 cursor-pointer transition-all duration-150 group-hover/bento:visible`}
           >
             <IconDotsVertical size="14" />
           </div>

@@ -1,5 +1,6 @@
 import { BentoGrid, BentoGridItem } from "@/components/ui/BentoGrid";
 import Heading from "@/components/ui/Heading";
+import NewestPosts from "@/components/ui/home/NewestPosts";
 import { Box, Container, Flex, Stack, Title } from "@mantine/core";
 import {
   IconArrowWaveRightUp,
@@ -13,23 +14,10 @@ import {
 
 function Home() {
   return (
-    <Container miw={{ base: "100%", lg: "950px", xl: "1200px" }}>
+    <Container miw={{ base: "100%", lg: "950px", xl: "1300px" }}>
       {/* hero */}
       <Flex direction={{ base: "column", md: "row" }} gap={20}>
-        <Box>
-          <Heading name="Newest Posts" order={3}>
-            Newest Posts
-          </Heading>
-          <BentoGrid>
-            {items.map((i, index) => (
-              <BentoGridItem
-                key={index}
-                {...i}
-                className={index === 3 || index === 6 ? "md:col-span-2" : ""}
-              />
-            ))}
-          </BentoGrid>
-        </Box>
+        <NewestPosts data={items} />
         <Box>
           <Heading name="Trending posts" order={3}>
             Trending posts
