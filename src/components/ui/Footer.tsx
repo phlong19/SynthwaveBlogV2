@@ -1,10 +1,5 @@
 function Footer() {
-  return (
-    <footer style={{ backgroundColor: "black", color: "white" }}>
-      {" "}
-      this is footer
-    </footer>
-  );
+  return <footer className="w-full bg-black text-white">this is footer</footer>;
 }
 
 export default Footer;

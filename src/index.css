@@ -14,7 +14,7 @@
     @apply relative uppercase italic;
   }
   .title::after {
-    @apply absolute left-3 top-3 text-xl font-bold uppercase italic text-black opacity-15 blur-[1px] content-[attr(data-name)];
+    @apply absolute left-3 top-3 w-full text-xl font-medium uppercase italic text-black opacity-15 blur-[1px] content-[attr(data-name)];
   }
 }
 
@@ -22,4 +22,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.clipped {
+  clip-path: polygon(10% 0%, 100% 0%, 100% 85%, 90% 100%, 0% 100%, 0% 15%);
 }

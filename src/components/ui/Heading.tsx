@@ -8,7 +8,7 @@ interface Props {
 
 function Heading({
   name,
-  order = 1,
+  order = 3,
   children,
   fz = "text-xl",
   className,

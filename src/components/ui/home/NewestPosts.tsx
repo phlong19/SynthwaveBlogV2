@@ -9,6 +9,7 @@ import style from "./NewestPosts.module.css";
 
 interface Props {
   data: {
+    id: string;
     className?: string | undefined;
     title: string;
     description?: React.ReactNode;
@@ -23,9 +24,7 @@ function NewestPosts({ data }: Props) {
 
   return (
     <Box>
-      <Heading name="Newest Posts" order={3}>
-        Newest Posts
-      </Heading>
+      <Heading name="Newest Posts">Newest Posts</Heading>
       <BentoGrid>
         {/* idk  */}
         <Carousel
@@ -36,9 +35,10 @@ function NewestPosts({ data }: Props) {
           className="rounded-xl bg-transparent shadow-lg hover:shadow-xl"
           height="100%"
         >
-          {data.map((i, index) => (
-            <Carousel.Slide key={index} className="h-full overflow-x-hidden">
+          {data.map((i) => (
+            <Carousel.Slide key={i.id} className="h-full overflow-x-hidden">
               <BentoGridItem
+                key={i.id}
                 {...i}
                 className="bg-white shadow-none hover:shadow-none"
               />
@@ -47,7 +47,7 @@ function NewestPosts({ data }: Props) {
         </Carousel>
         {data.slice(0, 6).map((i, index) => (
           <BentoGridItem
-            key={index}
+            key={i.id}
             {...i}
             className={index === 2 || index === 5 ? "md:col-span-2" : ""}
           />
