@@ -38,7 +38,7 @@ export const MenuItem = ({
           transition={transition}
         >
           {active === item && (
-            <div className="bg-white absolute left-1/2 top-[calc(100%_+_1.2rem)] -translate-x-1/2 transform">
+            <div className="absolute left-1/2 top-[calc(100%_+_1.2rem)] -translate-x-1/2 transform bg-white">
               <motion.div
                 transition={transition}
                 layoutId="active" // layoutId ensures smooth animation
@@ -91,6 +91,8 @@ export const ProductItem = ({
     <Link to={href} className="flex space-x-2">
       <Image
         src={src}
+        miw={140}
+        mih={70}
         maw={140}
         mah={70}
         alt={title}

@@ -1,6 +1,7 @@
 import { BentoGridItem } from "@/components/ui/BentoGrid";
 import Heading from "@/components/ui/Heading";
 import Categories from "@/components/ui/home/Categories";
+import FaqSection from "@/components/ui/home/FaqSection";
 import NewestPosts from "@/components/ui/home/NewestPosts";
 import { Box, Container, Flex, Stack } from "@mantine/core";
 import {
@@ -15,16 +16,15 @@ import {
 
 function Home() {
   return (
-    <Container miw={{ base: "100%", lg: "950px", xl: "1300px" }}>
+    <Container maw="1670px" className="!space-y-6 font-cas">
       {/* hero */}
-      <Flex direction={{ base: "column", md: "row" }} gap={20}>
+      <Flex direction={{ base: "column", md: "row" }} justify="center" gap={20}>
         <NewestPosts data={items} />
         <Box>
           <Heading name="Trending posts">Trending posts</Heading>
 
           <Stack
             miw={{ base: "100%", md: "30%", lg: "20%" }}
-            mt={15}
             h="100%"
             display={{ base: "flex", sm: "grid", md: "flex" }}
             style={{ gridTemplate: "1fr 1fr / 1fr 1fr" }}
@@ -35,10 +35,10 @@ function Home() {
           </Stack>
         </Box>
       </Flex>
-      {/* all cat */}
+      {/* all cats */}
       <Categories data={cats} />
 
-      {/* tags */}
+      <FaqSection />
 
       {/* news letter */}
     </Container>

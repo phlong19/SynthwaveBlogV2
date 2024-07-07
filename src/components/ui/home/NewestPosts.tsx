@@ -35,7 +35,7 @@ function NewestPosts({ data }: Props) {
           className="rounded-xl bg-transparent shadow-lg hover:shadow-xl"
           height="100%"
         >
-          {data.map((i) => (
+          {data.slice(0, 8).map((i) => (
             <Carousel.Slide key={i.id} className="h-full overflow-x-hidden">
               <BentoGridItem
                 key={i.id}

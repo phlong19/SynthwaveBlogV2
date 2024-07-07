@@ -1,11 +1,13 @@
 import { cn } from "@/lib/utils";
 import { Badge, Flex, Image, Menu, Text } from "@mantine/core";
 import {
+  IconBubbleText,
   IconDotsVertical,
+  IconHeart,
   IconSearch,
   IconSettings,
 } from "@tabler/icons-react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 export const BentoGrid = ({
@@ -60,18 +62,53 @@ export const BentoGridItem = ({
           <Image
             w="100%"
             radius="md"
-            className="transition-all duration-500 group-hover/bento:scale-110"
+            className="transition-all duration-500 group-hover/bento:scale-105"
             mah={150}
+            mih={90}
             miw={sider ? 90 : "auto"}
             src={thumb}
             alt="post's thumbnail"
           />
-          {/* overlay */}
-          <div className="absolute bottom-0 left-0 right-0 top-1/4 bg-[image:linear-gradient(180deg,rgba(0,0,0,0)25%,rgba(0,0,0,0.8)90%);]"></div>
-          {/* more in4 */}
-          <Flex c="gray" pos="absolute" fz="xs" bottom={12} right={20}>
-            comments & likes ...
-          </Flex>
+          {!sider && (
+            <>
+              {/* overlay */}
+              <div className="absolute bottom-0 left-0 right-0 top-1/4 bg-[image:linear-gradient(180deg,rgba(0,0,0,0)20%,rgba(0,0,0,0.8)90%);]"></div>
+              {/* more in4 */}
+              <Flex
+                c="gray"
+                w="100%"
+                pos="absolute"
+                justify="end"
+                bottom={10}
+                ta="right"
+                pr={{ base: 30, md: 12, xl: 30 }}
+                gap={8}
+              >
+                <CustomText
+                  icon={
+                    <IconBubbleText
+                      className="transition-all duration-200 group-hover:stroke-blue-400"
+                      size={16}
+                    />
+                  }
+                  color="blue-400"
+                >
+                  5 comments
+                </CustomText>
+                <CustomText
+                  icon={
+                    <IconHeart
+                      className="transition-all duration-200 group-hover:stroke-red-500"
+                      size={16}
+                    />
+                  }
+                  color="red-500"
+                >
+                  5 likes
+                </CustomText>
+              </Flex>
+            </>
+          )}
         </Link>
       </div>
 
@@ -98,14 +135,14 @@ export const BentoGridItem = ({
           <div className="flex items-center justify-start gap-2">
             {icon}
             <div
-              className={`${sider ? "md:line-clamp-1" : "line-clamp-1 2xl:line-clamp-2"} mb-2 mt-2 font-sans font-bold text-neutral-600 dark:text-neutral-200`}
+              className={`${sider ? "md:line-clamp-1" : "line-clamp-1 2xl:line-clamp-2"} mb-2 mt-2 font-bold text-neutral-600 dark:text-neutral-200`}
             >
               {title}
             </div>
           </div>
         </Link>
         <div
-          className={` ${sider ? "max-w-40" : "max-w-[90%]"} line-clamp-2 font-sans text-xs font-normal text-neutral-600 dark:text-neutral-300`}
+          className={` ${sider ? "max-w-40" : "max-w-[90%]"} line-clamp-2 text-xs font-normal text-neutral-600 dark:text-neutral-300`}
         >
           {description}
         </div>
@@ -154,5 +191,34 @@ function CustomBadge({ tag }: { tag: string }) {
     >
       {tag}
     </Badge>
+  );
+}
+
+function CustomText({
+  icon,
+  color,
+  children,
+}: {
+  color?: string;
+  icon: React.ReactNode;
+  children: React.ReactNode;
+}) {
+  // 2 classes for fallback
+  const classes = `group-hover:text-${color} hover:text-${color}`;
+
+  return (
+    <Flex className="group" gap={4} justify="center" align="center">
+      {icon}
+      <Text
+        fw={500}
+        fz={{ base: "sm", sm: "xs", lg: "sm" }}
+        className={cn(
+          classes,
+          `font-sans transition-all duration-200 group-hover:text-${color}`,
+        )}
+      >
+        {children}
+      </Text>
+    </Flex>
   );
 }

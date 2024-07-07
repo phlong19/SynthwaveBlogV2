@@ -15,10 +15,11 @@
   width: 15px !important;
   height: 4px !important;
   transition: width 250ms ease;
-  background-color: red !important;
+  background-color: var(--mantine-color-dimmed) !important;
 
   &[data-active] {
     width: 25px !important;
+    background-color: var(--mantine-color-bright) !important;
   }
 }
 
