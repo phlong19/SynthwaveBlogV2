@@ -23,19 +23,19 @@ function NewestPosts({ data }: Props) {
   const autoplay = useRef(Autoplay({ delay: 4000 }));
 
   return (
-    <Box>
+    <Box w="100%">
       <Heading name="Newest Posts">Newest Posts</Heading>
       <BentoGrid>
         {/* idk  */}
         <Carousel
           classNames={style}
-          plugins={[autoplay.current]}
+          // plugins={[autoplay.current]}
           slideGap={12}
           withIndicators
           className="rounded-xl bg-transparent shadow-lg hover:shadow-xl"
           height="100%"
         >
-          {data.slice(0, 8).map((i) => (
+          {data.slice(0, 7).map((i) => (
             <Carousel.Slide key={i.id} className="h-full overflow-x-hidden">
               <BentoGridItem
                 key={i.id}

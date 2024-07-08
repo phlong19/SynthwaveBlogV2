@@ -8,6 +8,7 @@ interface ButtonProps {
   style?: React.CSSProperties;
   className?: string;
   size?: string;
+  type?: "button" | "submit" | "reset";
 }
 
 function Button({
@@ -18,6 +19,7 @@ function Button({
   leftIcon,
   rightIcon,
   onClick,
+  type = "button",
 }: ButtonProps) {
   let sizeStyle = "";
 
@@ -40,9 +42,10 @@ function Button({
 
   return (
     <button
+      type={type}
       style={style}
       className={cn(
-        "block-cube block-cube-hover mb-4 inline-flex w-full items-center gap-2 border-0 bg-transparent font-cas tracking-widest outline-none",
+        "block-cube block-cube-hover mb-4 inline-flex w-full items-center justify-center gap-2 border-0 bg-transparent font-cas capitalize tracking-widest outline-none",
         sizeStyle,
         className,
       )}

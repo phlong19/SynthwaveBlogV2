@@ -16,8 +16,8 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <footer className="mt-10 bg-white px-4 pt-10">
-      <Flex maw="60rem" justify="space-between">
+    <footer className="mx-auto mt-10 bg-slate-100 px-14 pt-10">
+      <Flex maw="100rem" mx="auto" justify="space-between">
         <Flex maw={200} direction="column">
           <p>logo</p>
           <Text size="xs" c="dimmed">
@@ -29,7 +29,11 @@ function Footer() {
             <Stack key={index} miw={160} w={160}>
               <Text fw="bold">{group.title}</Text>
               {group.links.map(({ label, link }) => (
-                <Link key={label} to={link}>
+                <Link
+                  key={label}
+                  to={link}
+                  className="transition-colors duration-200 hover:text-blue-600"
+                >
                   <Text fz="sm">{label}</Text>
                 </Link>
               ))}
