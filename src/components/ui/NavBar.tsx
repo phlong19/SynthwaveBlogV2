@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import { Drawer } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export function Navbar({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null);
@@ -16,7 +17,9 @@ export function Navbar({ className }: { className?: string }) {
       )}
     >
       <Menu setActive={setActive}>
-        <div>logo</div>
+        <div>
+          <Link to={"/"}>logo</Link>
+        </div>
         <div className="hidden flex-1 items-center justify-center gap-4 lg:flex">
           <MenuItem setActive={setActive} active={active} item="Services">
             <div className="flex flex-col space-y-4 text-sm">
@@ -58,7 +61,7 @@ export function Navbar({ className }: { className?: string }) {
         onClose={close}
         title="hi"
       >
-        hi
+        <Link to="/auth/login">login page</Link>
       </Drawer>
     </div>
   );

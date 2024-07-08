@@ -10,10 +10,10 @@ function AffixButton() {
     <Affix position={{ bottom: 20, right: 20 }}>
       <Transition transition="slide-up" mounted={scroll.y > 0}>
         {(transitionStyles) => (
-          <Button
+          <Button size="xs"
             style={transitionStyles}
             onClick={() => scrollTo({ y: 0 })}
-            leftIcon={<IconArrowUp />}
+            leftIcon={<IconArrowUp className="z-20 text-white" size={18} />}
           >
             Scroll to top
           </Button>

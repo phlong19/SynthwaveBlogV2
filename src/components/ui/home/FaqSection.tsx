@@ -42,12 +42,12 @@ function FaqSection() {
               value={q.value}
             >
               <Accordion.Control
-                className={`${active === index + 1 ? "!bg-slate-200 dark:!bg-slate-800" : ""} rounded-md transition-colors duration-300 hover:bg-slate-200 hover:dark:bg-slate-800`}
+                className={`${active === index + 1 ? "rounded-t-md !bg-slate-200 dark:!bg-slate-800" : "rounded-md"} transition-colors duration-300 hover:bg-slate-200 hover:dark:bg-slate-800`}
               >
                 {q.ques}
               </Accordion.Control>
               <Accordion.Panel
-                className={`bg-slate-50 text-sm italic text-zinc-600`}
+                className={`${active === index + 1 ? "rounded-b-md" : ""} bg-slate-50 text-sm italic text-zinc-600 shadow-lg`}
               >
                 {placeholder}
               </Accordion.Panel>
