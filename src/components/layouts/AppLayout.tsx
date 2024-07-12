@@ -5,9 +5,11 @@ import AffixButton from "../ui/AffixButton";
 
 function AppLayout() {
   return (
-    <main className="mt-16 min-h-[calc(100dvh-65px)] w-full bg-[image:url(/pat.svg)]">
+    <main className="mt-16 flex min-h-[calc(100dvh-65px)] w-full flex-col bg-[image:url(/pat.svg)]">
       <Navbar />
-      <Outlet />
+      <div className="grow">
+        <Outlet />
+      </div>
 
       <AffixButton />
 

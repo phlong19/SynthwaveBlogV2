@@ -1,6 +1,5 @@
-import { Anchor, Box, Flex } from "@mantine/core";
-import { IconChevronsUpRight, IconChevronUpRight } from "@tabler/icons-react";
-import { useState } from "react";
+import { Anchor, Flex } from "@mantine/core";
+import { IconChevronsUpRight } from "@tabler/icons-react";
 import { Link } from "react-router-dom";
 
 interface Props {
@@ -21,7 +20,6 @@ function Heading({
   className,
 }: Props) {
   const Heading = `h${order}` as keyof JSX.IntrinsicElements;
-  const [hover, setHover] = useState(false);
 
   return (
     <Flex className="items-center justify-between" pt={15} pb={6} pl="8">
@@ -37,13 +35,13 @@ function Heading({
           display="flex"
           to={link}
           component={Link}
-          onMouseEnter={() => setHover(true)}
-          onMouseLeave={() => setHover(false)}
           fz="sm"
-          className="flex gap-1 !text-gray-500 transition-all duration-200"
+          className="group flex gap-1 !text-gray-500 transition-all duration-200"
         >
           <span>View all</span>
-          {hover ? <IconChevronsUpRight /> : <IconChevronUpRight />}
+          <span className="-translate-x-1 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1">
+            <IconChevronsUpRight />
+          </span>
         </Anchor>
       )}
     </Flex>

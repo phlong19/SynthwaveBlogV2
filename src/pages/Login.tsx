@@ -5,6 +5,7 @@ import { useState } from "react";
 
 function Login() {
   const [tk, setTk] = useState<string>("");
+  const [pass, setPass] = useState<string>("");
 
   return (
     <Container>
@@ -15,6 +16,15 @@ function Login() {
           value={tk}
           holder="email pls"
           type="email"
+          required
+        />
+        <Input
+          name="password"
+          value={pass}
+          setValue={setPass}
+          holder="Password"
+          required
+          type="password"
         />
         <Button type="button">login</Button>
       </form>
