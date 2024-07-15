@@ -91,7 +91,7 @@ export const BentoGridItem = ({
                       size={16}
                     />
                   }
-                  color="blue-400"
+                  type="cmt"
                 >
                   5 comments
                 </CustomText>
@@ -102,7 +102,7 @@ export const BentoGridItem = ({
                       size={16}
                     />
                   }
-                  color="red-500"
+                  type="like"
                 >
                   5 likes
                 </CustomText>
@@ -196,15 +196,17 @@ function CustomBadge({ tag }: { tag: string }) {
 
 function CustomText({
   icon,
-  color,
+  type = "cmt",
   children,
 }: {
-  color?: string;
+  type?: "cmt" | "like";
   icon: React.ReactNode;
   children: React.ReactNode;
 }) {
-  // 2 classes for fallback
-  const classes = `group-hover:text-${color} hover:text-${color}`;
+  const classes = {
+    cmt: "group-hover:text-blue-400",
+    like: "group-hover:text-red-500",
+  };
 
   return (
     <Flex className="group" gap={4} justify="center" align="center">
@@ -212,10 +214,7 @@ function CustomText({
       <Text
         fw={500}
         fz={{ base: "sm", sm: "xs", lg: "sm" }}
-        className={cn(
-          classes,
-          `font-sans transition-all duration-200 group-hover:text-${color}`,
-        )}
+        className={cn(classes[type], `font-sans transition-all duration-200`)}
       >
         {children}
       </Text>
