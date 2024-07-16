@@ -4,6 +4,7 @@ import { Drawer } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Actions from "./Actions";
 
 export function Navbar({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null);
@@ -47,6 +48,9 @@ export function Navbar({ className }: { className?: string }) {
             </div>
           </MenuItem>
         </div>
+
+        <Actions />
+
         {/* burger btn */}
         <button className="lg:hidden" onClick={open}>
           x
