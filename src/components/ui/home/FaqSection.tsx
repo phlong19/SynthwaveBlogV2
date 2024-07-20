@@ -19,7 +19,7 @@ function FaqSection() {
           chevronSize={26}
           variant="separated"
           styles={{
-            label: { color: "var(--mantine-color-black)" },
+            // label: { color: "var(--mantine-color-text)" },
             item: { border: 0 },
           }}
           chevron={
@@ -42,14 +42,14 @@ function FaqSection() {
               value={q.value}
             >
               <Accordion.Control
-                className={`${active === index + 1 ? "rounded-t-md !bg-slate-200 dark:!bg-slate-800" : "rounded-md"} transition-colors duration-300 hover:bg-slate-200 hover:dark:bg-slate-800`}
+                className={`${active === index + 1 ? "rounded-t-md !bg-slate-200 dark:!bg-zinc-600" : "rounded-md"} transition-all duration-300 hover:bg-slate-200 dark:text-white dark:hover:bg-zinc-600`}
               >
                 {q.ques}
               </Accordion.Control>
               <Accordion.Panel
                 className={`${active === index + 1 ? "rounded-b-md" : ""} bg-slate-50 text-sm italic text-zinc-600 shadow-lg`}
               >
-                {placeholder}
+                <div className="!py-3">{placeholder}</div>
               </Accordion.Panel>
             </Accordion.Item>
           ))}

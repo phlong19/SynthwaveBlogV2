@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <footer className="bottom-0 mx-auto mt-10 w-full bg-slate-100 px-14 pt-10">
+    <footer className="bottom-0 mx-auto mt-10 w-full bg-slate-100 px-14 pt-10 dark:bg-zinc-800">
       <Flex maw="100rem" mx="auto" justify="space-between">
         <Flex maw={200} direction="column">
           <p>logo</p>

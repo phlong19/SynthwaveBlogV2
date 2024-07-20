@@ -1,19 +1,28 @@
 import { ActionIcon, useMantineColorScheme } from "@mantine/core";
 import { IconMoon, IconSun } from "@tabler/icons-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { useDispatch, useSelector } from "react-redux";
-import { toggleDarkMode } from "@/services/redux/darkModeSlice";
-import { RootState } from "@/services/redux/store";
+import { setDarkMode, toggleDarkMode } from "@/services/redux/darkModeSlice";
+import { useAppDispatch, useAppSelector } from "@/hooks/redux";
 
 function ThemeToggle() {
-  const dispatch = useDispatch();
-  const darkMode = useSelector((state: RootState) => state.darkMode.darkMode);
-  const { colorScheme, setColorScheme } = useMantineColorScheme();
+  const dispatch = useAppDispatch();
+  const darkMode = useAppSelector((state) => state.darkMode.theme);
+  const { setColorScheme } = useMantineColorScheme();
 
   const [clicked, setClicked] = useState(false);
 
-  console.log(colorScheme);
+  useEffect(() => {
+    const isDark =
+      localStorage.getItem("mantine-color-scheme-value")?.toString() === "dark";
+
+    if (isDark) {
+      document.documentElement.classList.add("dark");
+      dispatch(setDarkMode(true));
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [dispatch]);
 
   const handleToggle = () => {
     const newMode = !darkMode;
@@ -39,16 +48,19 @@ function ThemeToggle() {
       }}
       onMouseLeave={() => setClicked(false)}
     >
-      <AnimatePresence>
-        <motion.div
-          initial={{ translateY: darkMode ? -20 : 20 }}
-          whileHover={!clicked ? { translateY: darkMode ? 20 : -20 } : {}}
-        >
-          <IconSun />
-          <br />
-          <IconMoon />
-        </motion.div>
-      </AnimatePresence>
+      {/* <AnimatePresence> */}
+      <motion.div
+        initial={{ translateY: 0 }}
+        animate={{ translateY: darkMode ? -20 : 20 }}
+        whileHover={!clicked ? { translateY: darkMode ? 20 : -20 } : {}}
+      >
+        {/* 20 */}
+        <IconSun className="text-yellow-500" />
+        <br /> {/* 0 here */}
+        {/* -20 */}
+        <IconMoon className="text-blue-600" />
+      </motion.div>
+      {/* </AnimatePresence> */}
     </ActionIcon>
   );
 }

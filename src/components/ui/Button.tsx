@@ -25,7 +25,7 @@ function Button({
 
   switch (size) {
     case "xs":
-      sizeStyle = "p-2 px-2.5 text-xs font-medium";
+      sizeStyle = "p-1.5 text-[10px] font-medium";
       break;
     case "sm": // default
       sizeStyle = "px-4 py-[14px] text-sm font-bold";
@@ -45,7 +45,7 @@ function Button({
       type={type}
       style={style}
       className={cn(
-        "block-cube block-cube-hover mb-4 inline-flex w-full items-center justify-center gap-2 border-0 bg-transparent font-cas capitalize tracking-widest outline-none",
+        "block-cube block-cube-hover mb-4 inline-flex w-[fit-content] items-center justify-center gap-2 border-0 bg-transparent font-cas capitalize tracking-widest outline-none",
         sizeStyle,
         className,
       )}
@@ -61,9 +61,7 @@ function Button({
         <div className="bg-inner"></div>
       </div>
       {leftIcon}
-      <span className="text text-sm text-white dark:text-black">
-        {children}
-      </span>
+      <span className="text text-white">{children}</span>
       {rightIcon}
     </button>
   );

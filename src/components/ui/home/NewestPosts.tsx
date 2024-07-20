@@ -12,7 +12,7 @@ interface Props {
     id: string;
     className?: string | undefined;
     title: string;
-    description?: React.ReactNode;
+    description?: string;
     thumb?: string | undefined;
     icon?: React.ReactNode;
     sider?: boolean | undefined;
@@ -29,7 +29,7 @@ function NewestPosts({ data }: Props) {
         {/* idk  */}
         <Carousel
           classNames={style}
-          // plugins={[autoplay.current]}
+          plugins={[autoplay.current]}
           slideGap={12}
           withIndicators
           className="rounded-xl bg-transparent shadow-lg hover:shadow-xl"

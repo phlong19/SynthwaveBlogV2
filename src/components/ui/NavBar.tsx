@@ -5,6 +5,7 @@ import { useDisclosure } from "@mantine/hooks";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Actions from "./Actions";
+import ThemeToggle from "./ThemeToggle";
 
 export function Navbar({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null);
@@ -49,7 +50,9 @@ export function Navbar({ className }: { className?: string }) {
           </MenuItem>
         </div>
 
-        <Actions />
+        <span className="hidden lg:block">
+          <Actions />
+        </span>
 
         {/* burger btn */}
         <button className="lg:hidden" onClick={open}>
@@ -65,6 +68,9 @@ export function Navbar({ className }: { className?: string }) {
         onClose={close}
         title="hi"
       >
+        {/* <Drawer.Header> */}
+        <ThemeToggle />
+        {/* </Drawer.Header> */}
         <Link to="/auth/login">login page</Link>
       </Drawer>
     </div>

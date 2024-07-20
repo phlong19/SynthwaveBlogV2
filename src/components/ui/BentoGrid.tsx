@@ -41,7 +41,7 @@ export const BentoGridItem = ({
   className?: string;
   title: string;
   tags?: Record<string, string>[];
-  description?: string | React.ReactNode;
+  description?: string;
   thumb?: string; // url
   icon?: React.ReactNode;
   sider?: boolean;
@@ -51,7 +51,7 @@ export const BentoGridItem = ({
   return (
     <div
       className={cn(
-        `group/bento shadow-input relative row-span-1 flex ${sider ? "flex-row items-center gap-4" : "flex-col gap-0 sm:gap-1 md:gap-2"} show space-y-2 rounded-xl border border-transparent bg-white p-4 shadow-lg transition duration-200 hover:shadow-xl dark:border-white/[0.2] dark:bg-black dark:shadow-none`,
+        `group/bento shadow-input relative row-span-1 flex ${sider ? "flex-row items-center gap-4" : "flex-col gap-0 sm:gap-1 md:gap-2"} show space-y-2 rounded-xl border border-transparent bg-white p-4 shadow-lg transition duration-200 hover:shadow-xl dark:border dark:border-white/10 dark:bg-[rgb(46,46,46)] dark:shadow-none`,
         className,
       )}
     >
@@ -135,7 +135,7 @@ export const BentoGridItem = ({
           <div className="flex items-center justify-start gap-2">
             {icon}
             <div
-              className={`${sider ? "md:line-clamp-1" : "line-clamp-1 2xl:line-clamp-2"} mb-2 mt-2 font-bold text-neutral-600 dark:text-neutral-200`}
+              className={`${sider ? "md:line-clamp-1" : "line-clamp-1 2xl:line-clamp-2"} mb-2 mt-2 font-bold text-neutral-600 transition-colors duration-300 dark:text-neutral-200 dark:group-hover/bento:!text-white`}
             >
               {title}
             </div>
@@ -143,6 +143,7 @@ export const BentoGridItem = ({
         </Link>
         <div
           className={` ${sider ? "max-w-40" : "max-w-[90%]"} line-clamp-2 text-xs font-normal text-neutral-600 dark:text-neutral-300`}
+          title={description}
         >
           {description}
         </div>
