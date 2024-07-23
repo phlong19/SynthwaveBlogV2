@@ -9,7 +9,12 @@ import { Link } from "react-router-dom";
 function Footer() {
   return (
     <footer className="bottom-0 mx-auto mt-10 w-full bg-slate-100 px-14 pt-10 dark:bg-zinc-800">
-      <Flex maw="100rem" mx="auto" justify="space-between">
+      <Flex
+        maw="100rem"
+        gap={{ base: 20, sm: 15 }}
+        mx="auto"
+        justify="space-between"
+      >
         <Flex maw={200} direction="column">
           <p>logo</p>
           <Text size="xs" c="dimmed">
@@ -18,7 +23,13 @@ function Footer() {
         </Flex>
         <Flex justify="space-between" wrap="wrap">
           {data.map((group, index) => (
-            <Stack key={index} miw={160} w={160}>
+            <Stack
+              className="!gap-2 md:!gap-3"
+              mb={10}
+              key={index}
+              miw={160}
+              w={160}
+            >
               <Text fw="bold">{group.title}</Text>
               {group.links.map(({ label, link }) => (
                 <Link

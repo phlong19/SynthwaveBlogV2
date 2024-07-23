@@ -4,17 +4,19 @@ import ThemeToggle from "./ThemeToggle";
 
 function Actions() {
   return (
-    <HoverCard>
-      <HoverCard.Target>
-        <div>actions</div>
-      </HoverCard.Target>
+    <>
+      <HoverCard>
+        <HoverCard.Target>
+          <div>actions</div>
+        </HoverCard.Target>
 
-      <HoverCard.Dropdown>
-        <Link to="/auth/login">login page</Link>
-      </HoverCard.Dropdown>
+        <HoverCard.Dropdown>
+          <Link to="/auth/login">login page</Link>
+        </HoverCard.Dropdown>
+      </HoverCard>
 
       <ThemeToggle />
-    </HoverCard>
+    </>
   );
 }
 

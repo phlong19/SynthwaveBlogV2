@@ -50,9 +50,9 @@ export function Navbar({ className }: { className?: string }) {
           </MenuItem>
         </div>
 
-        <span className="hidden lg:block">
+        <div className="hidden gap-2 lg:flex lg:items-center">
           <Actions />
-        </span>
+        </div>
 
         {/* burger btn */}
         <button className="lg:hidden" onClick={open}>
