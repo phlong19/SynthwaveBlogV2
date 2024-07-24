@@ -1,5 +1,5 @@
 // 3rd lib
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
 // layouts
 import AppLayout from "./components/layouts/AppLayout";
@@ -19,6 +19,7 @@ import ForgotPassword from "./pages/auth/ForgotPassword";
 
 // manage pages
 import DashBoard from "./pages/manage/DashBoard";
+import KcalDashboard from "./pages/manage/KcalDashboard";
 
 function App() {
   return (
@@ -35,16 +36,22 @@ function App() {
             <Route path="register" element={<Register />} />
             <Route path="forgot-password" element={<ForgotPassword />} />
           </Route>
+        </Route>
 
-          <Route
-            element={
-              <ProtectedRoute>
-                <ManageLayout />
-              </ProtectedRoute>
-            }
-          >
-            <Route path="/dashboard" element={<DashBoard />} />
-          </Route>
+        <Route
+          path="/dashboard"
+          element={<Navigate to="/dashboard/home" replace />}
+        />
+        <Route
+        path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <ManageLayout />
+            </ProtectedRoute>
+          }
+        >
+          <Route path="home" element={<DashBoard />} />
+          <Route path="kcal" element={<KcalDashboard />} />
         </Route>
       </Routes>
     </BrowserRouter>

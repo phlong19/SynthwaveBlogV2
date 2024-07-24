@@ -55,9 +55,9 @@
 /* cube input & button */
 :root {
   /*CUSTOMIZE ROOT*/
-  --background-color-inner: #212121;
-  --border-color-inner: rgba(53, 53, 53, 0.5);
-  --input-color: #fff;
+  --background-color-inner: #fae9e9;
+  --border-color-inner: #ff9999;
+  --input-color: #000;
   --bg-right-background-color: #00d4ff;
   --btn-gradient-color: linear-gradient(
     115deg,
@@ -67,6 +67,13 @@
     #12bcfe,
     #44ce7b
   );
+}
+
+html.dark {
+  --background-color-inner: #212121;
+  --border-color-inner: rgba(255, 255, 255, 0.5);
+  --input-color: #fff;
+  --bg-right-background-color: #00d4ff;
 }
 
 .block-cube {
@@ -126,13 +133,17 @@
   position: relative;
   z-index: 2;
 }
-.block-cube.block-input input:focus ~ .bg-right .bg-inner,
 .block-cube.block-input input:focus ~ .bg-top .bg-inner,
 .block-cube.block-input input:focus ~ .bg-inner .bg-inner {
   top: 100%;
   /* fill color on bg top when clicked */
   background: var(--border-color-inner);
 }
+.block-cube.block-input input:focus ~ .bg-right .bg-inner {
+  right: 100%;
+  background: var(--border-color-inner);
+}
+
 .block-cube.block-input .bg-top,
 .block-cube.block-input .bg-right,
 .block-cube.block-input .bg {

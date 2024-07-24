@@ -45,7 +45,7 @@ function Button({
       type={type}
       style={style}
       className={cn(
-        "block-cube block-cube-hover mb-4 inline-flex w-[fit-content] items-center justify-center gap-2 border-0 bg-transparent font-cas capitalize tracking-widest outline-none",
+        "block-cube block-cube-hover group mb-4 inline-flex w-[fit-content] items-center justify-center gap-2 border-0 bg-transparent font-cas capitalize tracking-widest outline-none",
         sizeStyle,
         className,
       )}
@@ -61,7 +61,9 @@ function Button({
         <div className="bg-inner"></div>
       </div>
       {leftIcon}
-      <span className="text text-white">{children}</span>
+      <span className="text text-black transition-all duration-200 group-hover:text-white dark:text-white">
+        {children}
+      </span>
       {rightIcon}
     </button>
   );

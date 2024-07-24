@@ -22,7 +22,7 @@ function Input({
     <div className="block-cube block-input font-cas">
       <input
         required={required}
-        className="relative w-full border-0 bg-transparent px-4 py-[14px] tracking-wider text-white opacity-80 hover:outline-none focus:outline-none"
+        className="relative w-full border-0 bg-transparent px-4 py-[14px] tracking-wider text-black hover:outline-none focus:outline-none dark:text-white"
         name={name}
         placeholder={holder}
         type={type}
@@ -36,7 +36,7 @@ function Input({
           className="absolute right-2 top-4 !z-40 cursor-pointer duration-100 hover:rotate-90"
           onClick={() => setValue("")}
         >
-          <IconX className="text-white" size={18} />
+          <IconX className="text-black/80 dark:text-white" size={18} />
         </div>
       </Tooltip>
 
