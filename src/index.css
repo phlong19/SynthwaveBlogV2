@@ -74,6 +74,14 @@ html.dark {
   --border-color-inner: rgba(255, 255, 255, 0.5);
   --input-color: #fff;
   --bg-right-background-color: #00d4ff;
+  --btn-gradient-color: linear-gradient(
+    90deg,
+    hsl(223deg 68% 6%) 0%,
+    hsl(263, 94%, 37%) 33%,
+    hsl(267deg 96% 65%) 67%,
+    hsl(270deg 27% 94%) 100%
+  );
+  --bg-right-background-color: #ddd;
 }
 
 .block-cube {

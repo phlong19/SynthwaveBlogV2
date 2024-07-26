@@ -1,34 +1,48 @@
+import AuthActions from "@/components/ui/AuthActions";
+import AuthFormWrapper from "@/components/ui/AuthFormWrapper";
 import Button from "@/components/ui/Button";
 import Input from "@/components/ui/Input";
-import { Container } from "@mantine/core";
-import { useState } from "react";
+import { useForm } from "react-hook-form";
 
 function Login() {
-  const [tk, setTk] = useState<string>("");
-  const [pass, setPass] = useState<string>("");
+  const {
+    handleSubmit,
+    register,
+    resetField,
+    formState: { errors },
+  } = useForm();
+
+  function onSubmit(data: any) {
+    console.log(data);
+  }
 
   return (
-    <Container>
-      <form className="mx-auto my-40 max-w-96 space-y-6" action="">
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <AuthFormWrapper title="login">
         <Input
+          register={register("email", { required: "dm email cua may dau?" })}
+          error={errors.email?.message?.toString()}
           name="email"
-          setValue={setTk}
-          value={tk}
+          reset={resetField}
           holder="email pls"
           type="email"
           required
         />
         <Input
+          register={register("password", { required: "dm dien mat khau vao" })}
+          error={errors.password?.message?.toString()}
           name="password"
-          value={pass}
-          setValue={setPass}
+          reset={resetField}
           holder="Password"
           required
           type="password"
         />
-        <Button type="button">login</Button>
-      </form>
-    </Container>
+        <Button type="submit" className="w-full capitalize">
+          login
+        </Button>
+        <AuthActions to="register" />
+      </AuthFormWrapper>
+    </form>
   );
 }
 

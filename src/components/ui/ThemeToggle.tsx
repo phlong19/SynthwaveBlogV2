@@ -1,7 +1,12 @@
 import { ActionIcon, useMantineColorScheme } from "@mantine/core";
-import { IconMoon, IconSun } from "@tabler/icons-react";
+import {
+  IconMoonFilled,
+  IconSun,
+  IconSunrise,
+  IconSunset,
+} from "@tabler/icons-react";
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { setDarkMode, toggleDarkMode } from "@/services/redux/darkModeSlice";
 import { useAppDispatch, useAppSelector } from "@/hooks/redux";
 
@@ -48,19 +53,25 @@ function ThemeToggle() {
       }}
       onMouseLeave={() => setClicked(false)}
     >
-      {/* <AnimatePresence> */}
       <motion.div
         initial={{ translateY: 0 }}
         animate={{ translateY: darkMode ? -20 : 20 }}
         whileHover={!clicked ? { translateY: darkMode ? 20 : -20 } : {}}
       >
         {/* 20 */}
-        <IconSun className="text-yellow-500" />
+        {darkMode ? (
+          <IconSunrise className="text-yellow-300" />
+        ) : (
+          <IconSun className="text-orange-500" />
+        )}
         <br /> {/* 0 here */}
         {/* -20 */}
-        <IconMoon className="text-blue-600" />
+        {darkMode ? (
+          <IconMoonFilled className="text-yellow-400" />
+        ) : (
+          <IconSunset className="text-orange-600" />
+        )}
       </motion.div>
-      {/* </AnimatePresence> */}
     </ActionIcon>
   );
 }

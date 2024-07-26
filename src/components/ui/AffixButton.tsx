@@ -16,7 +16,7 @@ function AffixButton() {
               style={transitionStyles}
               onClick={() => scrollTo({ y: 0 })}
             >
-              <IconChevronsUp className="z-20 w-9 text-white" size={18} />
+              <IconChevronsUp className="z-20 w-9 text-black dark:text-white" size={18} />
             </Button>
           )}
         </Transition>
