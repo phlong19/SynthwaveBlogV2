@@ -1,41 +1,29 @@
-import { db } from "@/services/firebase/firebase";
-import { collection, getDocs } from "firebase/firestore";
-import { useEffect, useState } from "react";
+import { getCategories } from "@/services/firebase/categories";
+import { useQuery } from "@tanstack/react-query";
 
 function Categories() {
-  const [list, setList] = useState([]);
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["categories"],
+    queryFn: getCategories,
+  });
 
-  const ref = collection(db, "categories");
-
-  useEffect(() => {
-    async function getList() {
-      try {
-        const querySnapshot = await getDocs(ref);
-        console.log(querySnapshot.docs);
-        const list = querySnapshot.docs.map((d) => ({
-          id: d.id,
-          ...d.data(),
-        }));
-        setList(list as any);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-
-    getList();
-  }, []);
-
-  if (list.length < 1) {
+  if (isLoading) {
     return <p>loading...</p>;
   }
-  console.log(list);
+
+  if (!data || error) {
+    return <p>error: {error?.message} </p>;
+  }
+
   return (
     <div>
-      {list.map((i: any) => (
+      {data.map((i) => (
         <div key={i.id}>
           <p>
             {i.displayName} - {i.name}
           </p>
+          <label htmlFor="data">Data:</label>
+          <textarea id="data">{JSON.stringify(data, undefined, 2)}</textarea>
         </div>
       ))}
     </div>

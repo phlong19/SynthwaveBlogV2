@@ -55,21 +55,21 @@ function ThemeToggle() {
     >
       <motion.div
         initial={{ translateY: 0 }}
-        animate={{ translateY: darkMode ? -20 : 20 }}
-        whileHover={!clicked ? { translateY: darkMode ? 20 : -20 } : {}}
+        animate={{ translateY: darkMode ? -19 : 19 }}
+        whileHover={!clicked ? { translateY: darkMode ? 19 : -19 } : {}}
       >
         {/* 20 */}
         {darkMode ? (
-          <IconSunrise className="text-yellow-300" />
+          <IconSunrise className="text-yellow-300" size={21} />
         ) : (
-          <IconSun className="text-orange-500" />
+          <IconSun className="fill-orange-500 text-orange-500" size={21} />
         )}
         <br /> {/* 0 here */}
         {/* -20 */}
         {darkMode ? (
-          <IconMoonFilled className="text-yellow-400" />
+          <IconMoonFilled className="text-blue-500" size={21} />
         ) : (
-          <IconSunset className="text-orange-600" />
+          <IconSunset className="text-orange-600" size={21} />
         )}
       </motion.div>
     </ActionIcon>

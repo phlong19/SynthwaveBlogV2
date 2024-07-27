@@ -12,10 +12,10 @@
 @layer components {
   /* custom heading */
   .title {
-    @apply relative uppercase italic;
+    @apply relative uppercase italic mb-2;
   }
   .title::after {
-    @apply absolute left-3 top-3 w-[max-content] text-xl font-medium uppercase italic text-black opacity-20 blur-[1px] content-[attr(data-name)];
+    @apply absolute left-3 top-3 w-[max-content] text-xl font-medium uppercase italic text-black opacity-20 blur-[1px] content-[attr(data-name)] dark:text-white;
   }
 
   /* clip path for category card */
@@ -50,6 +50,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+/* react-router-dom active navlink */
+/* auth page */
+a.auth.active{
+  display: none;
 }
 
 /* cube input & button */

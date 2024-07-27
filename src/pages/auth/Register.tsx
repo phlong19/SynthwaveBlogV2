@@ -5,7 +5,7 @@ function Register() {
   return (
     <div>
       <AuthFormWrapper title="register">
-        <AuthActions to="login" />
+        <AuthActions />
       </AuthFormWrapper>
     </div>
   );

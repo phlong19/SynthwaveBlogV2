@@ -8,7 +8,7 @@ interface Props {
 function AuthFormWrapper({ children, title }: Props) {
   return (
     <Container>
-      <Stack maw="24rem" mx="auto" my={80}>
+      <Stack maw="24rem" mx="auto" gap='1.5rem' my={80}>
         <Title tt="capitalize">{title}</Title>
         {children}
       </Stack>

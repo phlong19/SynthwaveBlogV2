@@ -74,7 +74,7 @@ interface Meal {
 }
 
 interface Ingredient extends BasicInformation {
-  version: string;
+  total: number; // gram, etc..
   calcalories_per_100g: number;
   protein_per_100g: number;
   carbs_per_100g: number;

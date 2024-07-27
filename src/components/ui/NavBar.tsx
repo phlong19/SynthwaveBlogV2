@@ -1,6 +1,6 @@
 import { HoveredLink, Menu, MenuItem, ProductItem } from "./NavbarMenu";
 import { cn } from "@/lib/utils";
-import { Drawer } from "@mantine/core";
+import { Burger, Drawer } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -54,10 +54,7 @@ export function Navbar({ className }: { className?: string }) {
           <Actions />
         </div>
 
-        {/* burger btn */}
-        <button className="lg:hidden" onClick={open}>
-          x
-        </button>
+        <Burger className="block lg:hidden" onClick={open} opened={opened} aria-label="toggle drawer" size='sm' />
       </Menu>
 
       {/* mobile drawer */}
@@ -79,14 +76,14 @@ export function Navbar({ className }: { className?: string }) {
 
 const productItems = [
   {
-    title: "Algochurn",
-    href: "https://algochurn.com",
+    title: "Synthwave Blog",
+    href: "https://synthwave-blog.onrender.com",
     src: "https://assets.aceternity.com/demos/algochurn.webp",
     description: "Prepare for tech interviews like never before.",
   },
   {
-    title: "Tailwind Master Kit",
-    href: "https://tailwindmasterkit.com",
+    title: "RAVVG",
+    href: "https://ravvg.netlify.app",
     src: "https://assets.aceternity.com/demos/tailwindmasterkit.webp",
     description:
       "Production ready Tailwind css components for your next project",

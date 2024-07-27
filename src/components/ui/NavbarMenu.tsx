@@ -88,7 +88,10 @@ export const ProductItem = ({
   src: string;
 }) => {
   return (
-    <Link to={href} className="flex space-x-2">
+    <Link
+      to={href}
+      className="group/item flex items-center gap-1.5 space-x-2 xl:gap-2"
+    >
       <Image
         src={src}
         miw={140}
@@ -96,13 +99,13 @@ export const ProductItem = ({
         maw={140}
         mah={70}
         alt={title}
-        className="flex-shrink-0 rounded-md shadow-2xl"
+        className="flex-shrink-0 rounded-md shadow-2xl brightness-75 transition-all duration-200 group-hover/item:brightness-100"
       />
       <div>
-        <h4 className="mb-1 text-xl font-bold text-black dark:text-white">
+        <h4 className="mb-1 text-xl font-bold text-black transition-colors duration-200 group-hover/item:text-green-500 dark:text-white">
           {title}
         </h4>
-        <p className="max-w-[10rem] text-sm text-neutral-700 dark:text-neutral-300">
+        <p className="max-w-[12rem] text-sm text-neutral-700 dark:text-neutral-300">
           {description}
         </p>
       </div>
@@ -114,7 +117,7 @@ export const HoveredLink = ({ children, ...rest }: any) => {
   return (
     <Link
       {...rest}
-      className="text-neutral-700 transition-colors duration-150 hover:text-black dark:text-neutral-200"
+      className="text-neutral-700 transition-colors duration-200 hover:text-black dark:text-neutral-400 dark:hover:text-white"
     >
       {children}
     </Link>

@@ -1,10 +1,11 @@
 import AuthActions from "@/components/ui/AuthActions";
+import AuthFormWrapper from "@/components/ui/AuthFormWrapper";
 
 function ForgotPassword() {
   return (
-    <div>
-      <AuthActions to="both" />
-    </div>
+    <AuthFormWrapper title="Forgot password">
+      <AuthActions />
+    </AuthFormWrapper>
   );
 }
 

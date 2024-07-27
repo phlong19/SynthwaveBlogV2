@@ -40,7 +40,7 @@ function Login() {
         <Button type="submit" className="w-full capitalize">
           login
         </Button>
-        <AuthActions to="register" />
+        <AuthActions />
       </AuthFormWrapper>
     </form>
   );

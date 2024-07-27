@@ -1,5 +1,7 @@
 // 3rd lib
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 // layouts
 import AppLayout from "./components/layouts/AppLayout";
@@ -21,40 +23,46 @@ import ForgotPassword from "./pages/auth/ForgotPassword";
 import DashBoard from "./pages/manage/DashBoard";
 import KcalDashboard from "./pages/manage/KcalDashboard";
 
+const queryClient = new QueryClient();
+
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route element={<AppLayout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/blog/:slug" element={<PostDetails />} />
-          <Route path="/categories" element={<Categories />} />
-          <Route path="/categories/:category" element={<Category />} />
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<AppLayout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/blog/:slug" element={<PostDetails />} />
+            <Route path="/categories" element={<Categories />} />
+            <Route path="/categories/:category" element={<Category />} />
 
-          <Route path="/auth">
-            <Route path="login" element={<Login />} />
-            <Route path="register" element={<Register />} />
-            <Route path="forgot-password" element={<ForgotPassword />} />
+            <Route path="/auth">
+              <Route path="login" element={<Login />} />
+              <Route path="register" element={<Register />} />
+              <Route path="forgot-password" element={<ForgotPassword />} />
+            </Route>
           </Route>
-        </Route>
 
-        <Route
-          path="/dashboard"
-          element={<Navigate to="/dashboard/home" replace />}
-        />
-        <Route
-        path="/dashboard"
-          element={
-            <ProtectedRoute>
-              <ManageLayout />
-            </ProtectedRoute>
-          }
-        >
-          <Route path="home" element={<DashBoard />} />
-          <Route path="kcal" element={<KcalDashboard />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+          <Route
+            path="/dashboard"
+            element={<Navigate to="/dashboard/home" replace />}
+          />
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <ManageLayout />
+              </ProtectedRoute>
+            }
+          >
+            <Route path="home" element={<DashBoard />} />
+            <Route path="kcal" element={<KcalDashboard />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   );
 }
 
