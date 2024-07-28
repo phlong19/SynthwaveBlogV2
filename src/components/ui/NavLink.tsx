@@ -17,13 +17,13 @@ function NavLink({ tree = false, children, to, props, label }: Props) {
   return !tree ? (
     <MLink
       {...props}
-      className="brightness-90 hover:brightness-105 dark:hover:brightness-110"
+      className="capitalize dark:hover:brightness-110"
       label={label}
       component={RLink}
       to={to!}
     />
   ) : (
-    <MLink {...props} label={label}>
+    <MLink {...props} label={label} className="capitalize">
       {children}
     </MLink>
   );

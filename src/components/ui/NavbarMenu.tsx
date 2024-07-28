@@ -27,7 +27,7 @@ export const MenuItem = ({
     <div onMouseEnter={() => setActive(item)} className="group relative">
       <motion.p
         transition={{ duration: 0.3 }}
-        className={`cursor-pointer text-black hover:opacity-[0.9] ${active === item ? "group-hover:text-green-500" : ""} transition-colors duration-300 dark:text-white`}
+        className={`cursor-pointer text-black hover:opacity-[0.9] ${active === item ? "group-hover:text-orange-500 dark:group-hover:text-blue-400" : ""} transition-colors duration-300 dark:text-white`}
       >
         {item}
       </motion.p>
@@ -42,7 +42,7 @@ export const MenuItem = ({
               <motion.div
                 transition={transition}
                 layoutId="active" // layoutId ensures smooth animation
-                className="-mt-2 overflow-hidden rounded-2xl border border-black/[0.2] bg-white shadow-xl backdrop-blur-sm dark:border-white/[0.2] dark:bg-black"
+                className="-mt-2 overflow-hidden rounded-2xl border border-black/[0.2] bg-white shadow-xl backdrop-blur-sm dark:border-white/[0.2] dark:bg-zinc-900"
               >
                 <motion.div
                   layout // layout ensures smooth animation
@@ -99,10 +99,10 @@ export const ProductItem = ({
         maw={140}
         mah={70}
         alt={title}
-        className="flex-shrink-0 rounded-md shadow-2xl brightness-75 transition-all duration-200 group-hover/item:brightness-100"
+        className="flex-shrink-0 rounded-md shadow-2xl brightness-[.85] transition-all duration-200 group-hover/item:brightness-100 dark:brightness-75"
       />
       <div>
-        <h4 className="mb-1 text-xl font-bold text-black transition-colors duration-200 group-hover/item:text-green-500 dark:text-white">
+        <h4 className="mb-1 text-xl font-bold text-black transition-colors duration-200 group-hover/item:text-orange-500 dark:text-white dark:group-hover/item:text-blue-400">
           {title}
         </h4>
         <p className="max-w-[12rem] text-sm text-neutral-700 dark:text-neutral-300">
@@ -113,10 +113,16 @@ export const ProductItem = ({
   );
 };
 
-export const HoveredLink = ({ children, ...rest }: any) => {
+export const HoveredLink = ({
+  children,
+  to,
+}: {
+  children: React.ReactNode;
+  to: string;
+}) => {
   return (
     <Link
-      {...rest}
+      to={to}
       className="text-neutral-700 transition-colors duration-200 hover:text-black dark:text-neutral-400 dark:hover:text-white"
     >
       {children}

@@ -22,15 +22,13 @@ export function Navbar({ className }: { className?: string }) {
         <div>
           <Link to={"/"}>logo</Link>
         </div>
-        <div className="hidden flex-1 items-center justify-center gap-4 lg:flex">
+        <div className="hidden absolute md:left-1/3 xl:left-[40%] 2xl:left-[45%] items-center justify-center gap-4 lg:flex">
           <MenuItem setActive={setActive} active={active} item="Services">
             <div className="flex flex-col space-y-4 text-sm">
-              <HoveredLink href="/web-dev">Web Development</HoveredLink>
-              <HoveredLink href="/interface-design">
-                Interface Design
-              </HoveredLink>
-              <HoveredLink href="/seo">Search Engine Optimization</HoveredLink>
-              <HoveredLink href="/branding">Branding</HoveredLink>
+              <HoveredLink to="/web-dev">Web Development</HoveredLink>
+              <HoveredLink to="/interface-design">Interface Design</HoveredLink>
+              <HoveredLink to="/seo">Search Engine Optimization</HoveredLink>
+              <HoveredLink to="/branding">Branding</HoveredLink>
             </div>
           </MenuItem>
           <MenuItem setActive={setActive} active={active} item="Products">
@@ -42,19 +40,24 @@ export function Navbar({ className }: { className?: string }) {
           </MenuItem>
           <MenuItem setActive={setActive} active={active} item="Pricing">
             <div className="flex flex-col space-y-4 text-sm">
-              <HoveredLink href="/hobby">Hobby</HoveredLink>
-              <HoveredLink href="/individual">Individual</HoveredLink>
-              <HoveredLink href="/team">Team</HoveredLink>
-              <HoveredLink href="/enterprise">Enterprise</HoveredLink>
+              <HoveredLink to="/hobby">Hobby</HoveredLink>
+              <HoveredLink to="/individual">Individual</HoveredLink>
+              <HoveredLink to="/team">Team</HoveredLink>
+              <HoveredLink to="/enterprise">Enterprise</HoveredLink>
             </div>
           </MenuItem>
         </div>
 
-        <div className="hidden gap-2 lg:flex lg:items-center">
-          <Actions />
-        </div>
+        {/* searchbar, actions + theme toggle desktop */}
+        <Actions />
 
-        <Burger className="block lg:hidden" onClick={open} opened={opened} aria-label="toggle drawer" size='sm' />
+        <Burger
+          className="block lg:hidden"
+          onClick={open}
+          opened={opened}
+          aria-label="toggle drawer"
+          size="sm"
+        />
       </Menu>
 
       {/* mobile drawer */}

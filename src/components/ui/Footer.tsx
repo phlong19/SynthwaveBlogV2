@@ -21,7 +21,11 @@ function Footer() {
             Build fully functional accessible web applications faster than ever
           </Text>
         </Flex>
-        <Flex justify="space-between" wrap="wrap">
+        <Flex
+          justify="space-between"
+          wrap="wrap"
+          ta={{ base: "right", md: "left" }}
+        >
           {data.map((group, index) => (
             <Stack
               className="!gap-2 md:!gap-3"

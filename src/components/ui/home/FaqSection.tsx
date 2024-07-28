@@ -10,7 +10,7 @@ function FaqSection() {
   const [active, setActive] = useState(0);
 
   return (
-    <section id="faq" style={{ minHeight: 300 }}>
+    <section id="faq" className="min-h-[300px]">
       <Heading name="Frequently asked questions">FAQ</Heading>
 
       <Container maw="100%" mt={20} className="font-cas">
@@ -42,12 +42,12 @@ function FaqSection() {
               value={q.value}
             >
               <Accordion.Control
-                className={`${active === index + 1 ? "rounded-t-md !bg-slate-200 dark:!bg-zinc-600" : "rounded-md"} transition-all duration-300 hover:bg-slate-200 dark:text-white dark:hover:bg-zinc-600`}
+                className={`${active === index + 1 ? "rounded-t-md !bg-slate-200 dark:!bg-neutral-700 dark:!text-blue-400 !text-orange-500" : "rounded-md"} transition-all duration-300 hover:bg-slate-200 dark:text-white dark:hover:bg-neutral-700`}
               >
                 {q.ques}
               </Accordion.Control>
               <Accordion.Panel
-                className={`${active === index + 1 ? "rounded-b-md" : ""} bg-slate-50 text-sm italic text-zinc-600 shadow-lg`}
+                className={`${active === index + 1 ? "rounded-b-md" : ""} bg-slate-50 text-sm italic text-black/90 shadow-lg dark:bg-zinc-300`}
               >
                 <div className="!py-3">{placeholder}</div>
               </Accordion.Panel>

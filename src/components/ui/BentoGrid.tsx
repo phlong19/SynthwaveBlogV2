@@ -81,7 +81,7 @@ export const BentoGridItem = ({
                 justify="end"
                 bottom={10}
                 ta="right"
-                pr={{ base: 30, md: 12, xl: 30 }}
+                pr={{ base: 30, md: 12, xl: 15 }}
                 gap={8}
               >
                 <CustomText
