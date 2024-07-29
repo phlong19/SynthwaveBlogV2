@@ -2,6 +2,7 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { Notifications } from "@mantine/notifications";
 
 // layouts
 import AppLayout from "./components/layouts/AppLayout";
@@ -61,7 +62,12 @@ function App() {
         </Routes>
       </BrowserRouter>
 
-      <ReactQueryDevtools initialIsOpen={false} />
+      <Notifications />
+      <ReactQueryDevtools
+        initialIsOpen={false}
+        buttonPosition="bottom-left"
+        position="left"
+      />
     </QueryClientProvider>
   );
 }

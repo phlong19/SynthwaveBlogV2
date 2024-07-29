@@ -54,7 +54,7 @@ const items = [
     description: "Explore the birth of groundbreaking ideas and inventions.",
     thumb:
       "https://img-cdn.pixlr.com/image-generator/history/65772796905f29530816ea40/4ca9ba3d-c418-4153-a36a-77f4182236a7/medium.webp",
-    icon: <IconClipboardCopy className="h-4 w-4 text-neutral-500" />,
+    // icon: <IconClipboardCopy className="h-4 w-4 text-neutral-500" />,
     tags: [
       { id: Math.random().toString(), value: "none" },
       { id: Math.random().toString(), value: "food" },

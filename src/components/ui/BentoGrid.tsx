@@ -1,14 +1,26 @@
 import { cn } from "@/lib/utils";
 import { Badge, Flex, Image, Menu, Text } from "@mantine/core";
+import { notifications } from "@mantine/notifications";
 import {
+  IconBookmark,
   IconBubbleText,
   IconDotsVertical,
+  IconEyeBolt,
   IconHeart,
-  IconSearch,
-  IconSettings,
+  IconShare,
 } from "@tabler/icons-react";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import slugify from "slugify";
+
+interface ItemProps {
+  className?: string;
+  title: string;
+  tags?: Record<string, string>[];
+  description?: string;
+  thumb?: string; // url
+  sider?: boolean;
+}
 
 export const BentoGrid = ({
   className,
@@ -34,35 +46,31 @@ export const BentoGridItem = ({
   title,
   description,
   thumb,
-  icon,
   sider,
   tags,
-}: {
-  className?: string;
-  title: string;
-  tags?: Record<string, string>[];
-  description?: string;
-  thumb?: string; // url
-  icon?: React.ReactNode;
-  sider?: boolean;
-}) => {
+}: ItemProps) => {
   const [open, setOpen] = useState(false);
+  const link = `/blog/${slugify(title.toLowerCase())}`;
 
   return (
     <div
       className={cn(
-        `group/bento shadow-input relative row-span-1 flex ${sider ? "flex-row items-center gap-4" : "flex-col gap-0 sm:gap-1 md:gap-2"} show space-y-2 rounded-xl border border-transparent bg-white p-4 shadow-lg transition duration-200 hover:shadow-xl dark:border dark:border-white/10 dark:bg-[rgb(46,46,46)] dark:shadow-none`,
+        `group/bento shadow-input relative row-span-1 flex ${sider ? "flex-row items-center gap-4" : "flex-col gap-0 sm:gap-1 md:gap-2"} show space-y-2 rounded-xl border border-transparent bg-white p-4 shadow-lg transition duration-200 hover:shadow-xl dark:border dark:border-white/10 dark:bg-[rgb(46,46,46)] dark:shadow-none dark:hover:bg-transparent`,
         className,
       )}
     >
       <div
         className={`${sider ? "max-w-[80px]" : ""} relative overflow-hidden rounded-lg`}
       >
-        <Link to={title}>
+        <Link to={link}>
           <Image
             w="100%"
             radius="md"
-            className="transition-all duration-500 group-hover/bento:scale-105"
+            className={` ${
+              sider
+                ? "brightness-90 group-hover/bento:scale-105"
+                : "brightness-75 group-hover/bento:brightness-90"
+            } transition-all duration-500`}
             mah={150}
             mih={90}
             miw={sider ? 90 : "auto"}
@@ -93,7 +101,7 @@ export const BentoGridItem = ({
                   }
                   type="cmt"
                 >
-                  5 comments
+                  5
                 </CustomText>
                 <CustomText
                   icon={
@@ -104,7 +112,7 @@ export const BentoGridItem = ({
                   }
                   type="like"
                 >
-                  5 likes
+                  5
                 </CustomText>
               </Flex>
             </>
@@ -129,25 +137,26 @@ export const BentoGridItem = ({
           ))}
       </Flex>
 
-      {/* details */}
-      <div className="min-h-[85px] flex-grow transition duration-200 group-hover/bento:translate-x-2 lg:flex-grow-0">
-        <Link to={title}>
+      <Link to={link}>
+        {/* details */}
+        <div
+          className={`min-h-[85px] flex-grow transition duration-200 ${!sider ? "group-hover/bento:translate-x-2" : ""} lg:flex-grow-0`}
+        >
           <div className="flex items-center justify-start gap-2">
-            {icon}
             <div
-              className={`${sider ? "md:line-clamp-1" : "line-clamp-1 2xl:line-clamp-2"} mb-2 mt-2 font-bold text-neutral-600 transition-colors duration-300 dark:text-neutral-200 dark:group-hover/bento:!text-white`}
+              className={`${sider ? "md:line-clamp-1" : "line-clamp-1 2xl:line-clamp-2"} mb-2 mt-2 font-bold text-neutral-600 transition-colors duration-300 group-hover/bento:text-black/90 dark:text-neutral-200 dark:group-hover/bento:text-white`}
             >
               {title}
             </div>
           </div>
-        </Link>
-        <div
-          className={` ${sider ? "max-w-40" : "max-w-[90%]"} line-clamp-2 text-xs font-normal text-neutral-600 dark:text-neutral-300`}
-          title={description}
-        >
-          {description}
+          <div
+            className={` ${sider ? "max-w-40" : "max-w-[90%]"} line-clamp-2 text-xs font-normal text-neutral-600 group-hover/bento:text-black/90 dark:text-neutral-300 dark:group-hover/bento:text-white`}
+            title={description}
+          >
+            {description}
+          </div>
         </div>
-      </div>
+      </Link>
 
       <Menu opened={open} onChange={setOpen}>
         {/* menu */}
@@ -155,24 +164,25 @@ export const BentoGridItem = ({
           <div
             className={`${open ? "visible" : "visible lg:invisible"} ${sider ? "bottom-3.5" : "bottom-3"} absolute right-3 cursor-pointer transition-all duration-150 group-hover/bento:visible`}
           >
-            <IconDotsVertical size="14" />
+            <IconDotsVertical size={sider ? 16 : 18} />
           </div>
         </Menu.Target>
 
         <Menu.Dropdown>
           <Menu.Label className="line-clamp-1">{title}</Menu.Label>
-          <Menu.Item leftSection={<IconSettings size="18" />}>
-            settings
+          <Menu.Item leftSection={<IconEyeBolt size="18" />}>
+            Quick view
+          </Menu.Item>
+          <Menu.Item leftSection={<IconBookmark size={18} />}>
+            Bookmark
           </Menu.Item>
           <Menu.Item
-            leftSection={<IconSearch size={18} />}
-            rightSection={
-              <Text size="xs" c="dimmed">
-                ⌘K
-              </Text>
+            leftSection={<IconShare size={18} />}
+            onClick={() =>
+              notifications.show({ message: "hi", title: "play pes now" })
             }
           >
-            Search
+            Share
           </Menu.Item>
         </Menu.Dropdown>
       </Menu>
