@@ -3,8 +3,8 @@ import ThemeToggle from "../ui/ThemeToggle";
 
 function ManageLayout() {
   return (
-    <div className="grid min-h-screen w-full grid-cols-[45px_1fr] bg-white dark:bg-black">
-      <div className="bg-purple-400 text-sm text-black">
+    <div className="grid max-h-screen min-h-screen w-full grid-cols-[45px_1fr] bg-white dark:bg-black overflow-hidden">
+      <div className="bg-purple-400 text-sm text-black sticky left-0 top-0">
         sider
         <ThemeToggle />
       </div>
