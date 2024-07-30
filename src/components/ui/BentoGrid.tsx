@@ -162,7 +162,7 @@ export const BentoGridItem = ({
         {/* menu */}
         <Menu.Target>
           <div
-            className={`${open ? "visible" : "visible lg:invisible"} ${sider ? "bottom-3.5" : "bottom-3"} absolute right-3 cursor-pointer transition-all duration-150 group-hover/bento:visible`}
+            className={`${open ? "visible text-orange-500 dark:text-blue-400" : "visible lg:invisible"} ${sider ? "bottom-3.5" : "bottom-3"} absolute right-3 cursor-pointer transition-all duration-150 group-hover/bento:visible`}
           >
             <IconDotsVertical size={sider ? 16 : 18} />
           </div>

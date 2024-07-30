@@ -1,12 +1,4 @@
-import {
-  ActionIcon,
-  Box,
-  Flex,
-  Input,
-  Menu,
-  Popover,
-  Tooltip,
-} from "@mantine/core";
+import { ActionIcon, Box, Flex, Input, Popover, Tooltip } from "@mantine/core";
 import ThemeToggle from "./ThemeToggle";
 import {
   IconDotsVertical,
@@ -76,16 +68,16 @@ function Actions() {
 
       <AdvancedSearch close={close} opened={opened} />
 
-      <Menu opened={isOpen} onChange={setIsOpen}>
-        <Menu.Target>
+      <Popover opened={isOpen} onChange={setIsOpen}>
+        <Popover.Target>
           <IconDotsVertical
             onClick={() => setIsOpen((o) => !o)}
             size={18}
             className={`cursor-pointer ${isOpen ? "text-orange-500 dark:text-blue-400" : ""}`}
           />
-        </Menu.Target>
+        </Popover.Target>
 
-        <Menu.Dropdown fz="sm" p={0}>
+        <Popover.Dropdown fz="sm" p={0}>
           <Box miw={200}>
             <NavLink
               onClick={onClose}
@@ -109,8 +101,8 @@ function Actions() {
               <NavLink to="/auth/register" onClick={onClose} label="register" />
             </NavLink>
           </Box>
-        </Menu.Dropdown>
-      </Menu>
+        </Popover.Dropdown>
+      </Popover>
 
       <ThemeToggle />
     </div>

@@ -23,6 +23,7 @@ import ForgotPassword from "./pages/auth/ForgotPassword";
 // manage pages
 import DashBoard from "./pages/manage/DashBoard";
 import KcalDashboard from "./pages/manage/KcalDashboard";
+import NotFound404 from "./pages/NotFound404";
 
 const queryClient = new QueryClient();
 
@@ -59,6 +60,8 @@ function App() {
             <Route path="home" element={<DashBoard />} />
             <Route path="kcal" element={<KcalDashboard />} />
           </Route>
+
+          <Route path="*" element={<NotFound404 />} />
         </Routes>
       </BrowserRouter>
 

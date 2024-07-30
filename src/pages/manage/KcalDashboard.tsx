@@ -1,15 +1,9 @@
-import { Stack } from "@mantine/core";
-import { Link } from "react-router-dom";
-
 function KcalDashboard() {
   return (
-    <div>
-      <p>dashboard with chart, kcal analysics</p>
-      <Stack>
-        <Link to="/">back home</Link>
-
-        <Link to="/dashboard">to dashboard</Link>
-      </Stack>
+    <div className="grid h-full grid-cols-2 grid-rows-2 text-black">
+      <div className="bg-red-50">chart</div>
+      <div className="row-span-2 bg-purple-200">unknown</div>
+      <div className="bg-teal-200">properties</div>
     </div>
   );
 }
