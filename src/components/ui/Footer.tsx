@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <footer className="bottom-0 mx-auto mt-10 w-full bg-slate-100 px-14 pt-10 dark:bg-zinc-800">
+    <footer className="bottom-0 mx-auto mt-10 w-full bg-zinc-200 px-14 pt-10 dark:bg-zinc-800">
       <Flex
         maw="100rem"
         gap={{ base: 20, sm: 15 }}
@@ -49,7 +49,7 @@ function Footer() {
         </Flex>
       </Flex>
 
-      <Divider my="xl" />
+      <Divider my="xl" color='gray' />
       <Flex justify="space-between" align="center">
         <Text c="dimmed" size="sm">
           © 2024 phl19.dev. All rights reserved.

@@ -7,6 +7,9 @@ export default {
       fontFamily: {
         cas: ['"Cascadia Code"'],
       },
+      colors: {
+        light: "#f2f4f4",
+      },
     },
   },
   plugins: [],

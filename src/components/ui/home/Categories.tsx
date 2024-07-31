@@ -23,7 +23,7 @@ function Categories({ data }: Props) {
         {data.map((i, index) => (
           <Link
             to="/"
-            className={`${index % 2 !== 0 ? "clipped hover:reverse-clipped" : "reverse-clipped hover:clipped"} group overflow-hidden brightness-100 transition-all duration-300 hover:brightness-[0.85]`}
+            className={`${index % 2 !== 0 ? "clipped hover:reverse-clipped" : "reverse-clipped hover:clipped"} group border border-black/20 overflow-hidden brightness-100 transition-all duration-300 hover:border-0 hover:brightness-[0.85]`}
             key={index}
           >
             <AspectRatio

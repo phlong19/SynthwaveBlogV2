@@ -12,7 +12,7 @@
 @layer components {
   /* custom heading */
   .title {
-    @apply relative uppercase italic mb-2;
+    @apply relative mb-2 uppercase italic;
   }
   .title::after {
     @apply absolute left-3 top-3 w-[max-content] text-xl font-medium uppercase italic text-black opacity-20 blur-[1px] content-[attr(data-name)] dark:text-white;
@@ -52,9 +52,13 @@
   box-sizing: border-box;
 }
 
+html:not(.dark) body {
+  background-color: #f2f4f4;
+}
+
 /* react-router-dom active navlink */
 /* auth page */
-a.auth.active{
+a.auth.active {
   display: none;
 }
 

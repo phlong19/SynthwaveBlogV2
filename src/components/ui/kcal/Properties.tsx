@@ -9,7 +9,7 @@ interface Properties {
 
 function Properties() {
   return (
-    <div className="grid grid-cols-3 grid-rows-2 gap-5 gap-x-10 bg-white px-5 py-8 overflow-hidden">
+    <div className="grid grid-cols-3 grid-rows-2 gap-5 gap-x-10 overflow-hidden bg-light px-5 py-8">
       {pro.map(({ name, description, value, rate }, index) => (
         <div key={index}>
           <Title order={3} fw={500}>
@@ -28,7 +28,6 @@ function Properties() {
             </Badge>
           </div>
           <p>{description}</p>
-          {/* https://cdn. dribbble. com/userupload/13724216/file/original-e7650fa60d5737382c64ba1575b22dab.png?resize=1905x1429v */}
         </div>
       ))}
     </div>
