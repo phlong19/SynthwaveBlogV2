@@ -22,7 +22,7 @@ export function Navbar({ className }: { className?: string }) {
         <div>
           <Link to={"/"}>logo</Link>
         </div>
-        <div className="hidden absolute md:left-1/3 xl:left-[40%] 2xl:left-[45%] items-center justify-center gap-4 lg:flex">
+        <div className="hidden absolute md:left-1/3 xl:left-[40%] items-center justify-center gap-4 lg:flex">
           <MenuItem setActive={setActive} active={active} item="Services">
             <div className="flex flex-col space-y-4 text-sm">
               <HoveredLink to="/web-dev">Web Development</HoveredLink>

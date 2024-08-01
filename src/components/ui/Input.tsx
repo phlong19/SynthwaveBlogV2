@@ -1,6 +1,7 @@
 import { Stack, Tooltip } from "@mantine/core";
 import { IconX } from "@tabler/icons-react";
 import React from "react";
+import { Control, useWatch } from "react-hook-form";
 
 interface InputProps {
   type?: string;
@@ -10,11 +11,13 @@ interface InputProps {
   register?: any;
   error?: string;
   reset?: (name: string) => void;
+  control?: Control<any>; // we dont specify the input field here cus this is individual input
 }
 
 const Input = React.forwardRef(
   (
     {
+      control,
       name,
       register,
       reset,
@@ -25,6 +28,11 @@ const Input = React.forwardRef(
     }: InputProps,
     ref,
   ) => {
+    const value = useWatch({
+      control,
+      name, // only watch the input name
+    });
+
     return (
       <Stack>
         <div className="block-cube block-input font-cas">
@@ -38,14 +46,16 @@ const Input = React.forwardRef(
           />
 
           {/* clear btn */}
-          <Tooltip label="Clear input">
-            <div
-              className="absolute right-2 top-4 !z-40 cursor-pointer duration-100 hover:rotate-90"
-              onClick={() => reset?.(name)}
-            >
-              <IconX className="text-black/80 dark:text-white" size={18} />
-            </div>
-          </Tooltip>
+          {value && (
+            <Tooltip label="Clear input">
+              <div
+                className="absolute right-2 top-4 !z-40 cursor-pointer duration-100 hover:rotate-90"
+                onClick={() => reset?.(name)}
+              >
+                <IconX className="text-black/80 dark:text-white" size={18} />
+              </div>
+            </Tooltip>
+          )}
 
           <div className="bg-top">
             <div className="bg-inner"></div>

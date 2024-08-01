@@ -1,4 +1,4 @@
-import { Button, Flex, Title } from "@mantine/core";
+import { Flex, Title } from "@mantine/core";
 import { default as CustomButton } from "@/components/ui/Button";
 
 function Chart() {
@@ -13,7 +13,7 @@ function Chart() {
         <Button>Experian</Button>
       </Flex>
 
-      <div className="h-60 bg-red-300 my-5 text-white">chart</div>
+      <div className="my-5 h-60 bg-red-300 text-white">chart</div>
 
       <div className="mx-auto mt-8">
         <CustomButton>Update your credit points</CustomButton>
@@ -23,3 +23,11 @@ function Chart() {
 }
 
 export default Chart;
+
+function Button({ children }: { children: React.ReactNode }) {
+  return (
+    <button className="rounded-lg border border-gray-300 p-3 text-black hover:bg-white active:bg-white">
+      {children}
+    </button>
+  );
+}

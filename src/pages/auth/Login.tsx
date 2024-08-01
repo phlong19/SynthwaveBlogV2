@@ -10,6 +10,7 @@ function Login() {
     register,
     resetField,
     formState: { errors },
+    control,
   } = useForm();
 
   function onSubmit(data: any) {
@@ -26,6 +27,7 @@ function Login() {
           reset={resetField}
           holder="email pls"
           type="email"
+          control={control}
           required
         />
         <Input
@@ -33,6 +35,7 @@ function Login() {
           error={errors.password?.message?.toString()}
           name="password"
           reset={resetField}
+          control={control}
           holder="Password"
           required
           type="password"

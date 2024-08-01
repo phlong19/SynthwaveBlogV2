@@ -1,16 +1,26 @@
-import { ActionIcon, Box, Flex, Input, Popover, Tooltip } from "@mantine/core";
+import {
+  ActionIcon,
+  Box,
+  Button,
+  Flex,
+  Input,
+  Popover,
+  Tooltip,
+} from "@mantine/core";
 import ThemeToggle from "./ThemeToggle";
 import {
   IconDotsVertical,
   IconLogin,
   IconMaximize,
   IconSearch,
+  IconUserCircle,
 } from "@tabler/icons-react";
 import NavLink from "./NavLink";
 import { useDisclosure } from "@mantine/hooks";
 import { useAppSelector } from "@/hooks/redux";
 import { useEffect, useState } from "react";
 import AdvancedSearch from "./AdvancedSearch";
+import { Link } from "react-router-dom";
 
 function Actions() {
   // searchbox state
@@ -67,7 +77,7 @@ function Actions() {
       />
 
       <AdvancedSearch close={close} opened={opened} />
-
+      <ThemeToggle />
       <Popover opened={isOpen} onChange={setIsOpen}>
         <Popover.Target>
           <IconDotsVertical
@@ -104,7 +114,20 @@ function Actions() {
         </Popover.Dropdown>
       </Popover>
 
-      <ThemeToggle />
+      <div className="hidden xl:block">
+        <Button
+          component={Link}
+          to={"/auth/login"}
+          radius="md"
+          leftSection={<IconUserCircle size={22} />}
+          bd="2px solid #ddd"
+          className="!text-zinc-800 !line-through transition-colors duration-300 hover:!border-zinc-400 hover:!text-black hover:decoration-transparent"
+          bg={"white"}
+          fw={400}
+        >
+          Login
+        </Button>
+      </div>
     </div>
   );
 }
