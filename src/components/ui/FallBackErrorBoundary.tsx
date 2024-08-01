@@ -7,7 +7,10 @@ function FallBackErrorBoundary({ error, resetErrorBoundary }: FallbackProps) {
     <div className="relative mx-auto flex h-screen max-w-full flex-col items-center justify-center gap-10 lg:max-w-[80%]">
       <h3 className="whitespace-pre-line font-medium">{error.message}</h3>
       <div className="w-44">
-        <Button onClick={resetErrorBoundary} leftIcon={<IconHome2 className="z-20 text-white" />}>
+        <Button
+          onClick={resetErrorBoundary}
+          leftIcon={<IconHome2 className="z-20 text-[#222] dark:text-white" />}
+        >
           click here
         </Button>
       </div>

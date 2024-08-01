@@ -62,6 +62,12 @@ a.auth.active {
   display: none;
 }
 
+a.auth:hover {
+  font-weight: 600;
+  transition: all;
+  transition-duration: 200ms;
+}
+
 /* cube input & button */
 :root {
   /*CUSTOMIZE ROOT*/

@@ -17,7 +17,7 @@ function AuthActions() {
         Need an account
       </NavLink>
       <NavLink className="auth" to="/auth/forgot-password">
-        have some trouble?
+        Have some trouble?
       </NavLink>
 
       <Box w="100%">
