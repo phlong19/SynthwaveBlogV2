@@ -5,7 +5,6 @@ import "./index.css";
 
 import "@mantine/core/styles.css";
 import "@mantine/carousel/styles.css";
-import '@mantine/notifications/styles.css';
 
 import { createTheme, MantineProvider } from "@mantine/core";
 

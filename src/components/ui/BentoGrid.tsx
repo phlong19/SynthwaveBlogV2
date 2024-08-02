@@ -1,6 +1,5 @@
 import { cn } from "@/lib/utils";
 import { Badge, Flex, Image, Menu, Text } from "@mantine/core";
-import { notifications } from "@mantine/notifications";
 import {
   IconBookmark,
   IconBubbleText,
@@ -10,6 +9,7 @@ import {
   IconShare,
 } from "@tabler/icons-react";
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import slugify from "slugify";
 
@@ -178,9 +178,7 @@ export const BentoGridItem = ({
           </Menu.Item>
           <Menu.Item
             leftSection={<IconShare size={18} />}
-            onClick={() =>
-              notifications.show({ message: "hi", title: "play pes now" })
-            }
+            onClick={() => toast.error("play pes now")}
           >
             Share
           </Menu.Item>

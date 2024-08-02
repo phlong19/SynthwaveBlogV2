@@ -22,7 +22,7 @@ export function Navbar({ className }: { className?: string }) {
         <div>
           <Link to={"/"}>logo</Link>
         </div>
-        <div className="hidden absolute md:left-1/3 xl:left-[40%] items-center justify-center gap-4 lg:flex">
+        <div className="absolute hidden items-center justify-center gap-4 md:left-1/3 lg:flex xl:left-[40%]">
           <MenuItem setActive={setActive} active={active} item="Services">
             <div className="flex flex-col space-y-4 text-sm">
               <HoveredLink to="/web-dev">Web Development</HoveredLink>
@@ -38,12 +38,10 @@ export function Navbar({ className }: { className?: string }) {
               ))}
             </div>
           </MenuItem>
-          <MenuItem setActive={setActive} active={active} item="Pricing">
+          <MenuItem setActive={setActive} active={active} item="Dashboard">
             <div className="flex flex-col space-y-4 text-sm">
-              <HoveredLink to="/hobby">Hobby</HoveredLink>
-              <HoveredLink to="/individual">Individual</HoveredLink>
-              <HoveredLink to="/team">Team</HoveredLink>
-              <HoveredLink to="/enterprise">Enterprise</HoveredLink>
+              <HoveredLink to="/dashboard">home dashboard</HoveredLink>
+              <HoveredLink to="/dashboard/kcal">kcal dashboard</HoveredLink>
             </div>
           </MenuItem>
         </div>

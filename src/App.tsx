@@ -2,7 +2,7 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { Notifications } from "@mantine/notifications";
+import { Toaster } from "react-hot-toast";
 
 // layouts
 import AppLayout from "./components/layouts/AppLayout";
@@ -67,11 +67,11 @@ function App() {
         </Routes>
       </BrowserRouter>
 
-      <Notifications />
+      <Toaster position="top-right" />
       <ReactQueryDevtools
         initialIsOpen={false}
-        buttonPosition="bottom-left"
-        position="left"
+        buttonPosition="bottom-right"
+        position="bottom"
       />
     </QueryClientProvider>
   );
